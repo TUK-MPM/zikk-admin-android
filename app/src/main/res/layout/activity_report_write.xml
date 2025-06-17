@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_orange"
+    android:id="@+id/main">
+
+    <!-- 상태창 -->
+    <fragment
+        android:id="@+id/headerFragment"
+        android:name="com.example.zikk.ui.HeaderFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <!-- 메인 화면 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- 메인 제목과 뒤로가기 버튼 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <ImageButton
+                        android:id="@+id/iv_back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/baseline_arrow_back_ios_30"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="뒤로가기"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="신고 작성 페이지"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:shadowColor="#80000000"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <!-- 폰 번호 입력 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- 폰 번호 입력 문구 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="아이디를 입력해주세요!"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="60dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_exclamation"
+                            android:layout_marginEnd="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="아이디로 신고 현황을 조회할 수 있어요"
+                            android:textSize="7sp" />
+                    </LinearLayout>
+
+                    <!-- 폰 번호 입력 창 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:hint="최소 2글자 ~ 최대 10글자"
+                                android:background="@color/background_gray"
+                                android:paddingHorizontal="16dp"
+                                android:textSize="14sp"
+                                android:inputType="phone"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+                <!-- 구분 선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_gray"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- 위치 입력  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+                    <!-- 위치 입력  문구 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="위치를 알려주세요!"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- 위치 입력 및 가져오기 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_weight="20"
+                            android:layout_marginEnd="5dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp">
+
+                            <EditText
+                                android:id="@+id/et_locate_write"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:hint="수동으로 입력하기"
+                                android:background="@color/background_gray"
+                                android:paddingHorizontal="16dp"
+                                android:textSize="14sp"
+                                android:inputType="text"
+                                android:singleLine="true"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp">
+
+                            <Button
+                                android:id="@+id/btn_locate_get"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:minWidth="100dp"
+                                android:maxLines="1"
+                                android:text="위치 가져오기"
+                                android:textStyle="bold"
+                                android:backgroundTint="@color/background_gray"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:paddingHorizontal="14dp" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 구분 선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_gray"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Photo Upload Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="신고할 장소의 사진을 촬영해주세요!"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:id="@+id/photoContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/background_gray"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="16dp">
+
+                        <ImageButton
+                            android:id="@+id/btn_PickImage"
+                            android:layout_width="61dp"
+                            android:layout_height="65dp"
+                            android:src="@drawable/report_picture_add"
+                            android:contentDescription="사진 추가 버튼"
+                            android:layout_gravity="center"
+                            android:padding="0dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 구분 선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_gray"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Report Reason Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="어디에 불법 주차되어 있나요?"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#333333" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/parking_help" />
+                    </LinearLayout>
+
+                    <!-- 라디오 버튼 영역을 RelativeLayout으로 감싸서 캐릭터 오버레이 -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radio_crosswalk"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="점자블록"
+                                android:textSize="14sp"
+                                android:paddingVertical="8dp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_intersection"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="교통섬 내부"
+                                android:textSize="14sp"
+                                android:paddingVertical="8dp"
+                                android:checked="true" />
+
+                            <RadioButton
+                                android:id="@+id/radio_bus_stop"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="보호 구역"
+                                android:textSize="14sp"
+                                android:paddingVertical="8dp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_safety_zone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="상기 사항 외 보도"
+                                android:textSize="14sp"
+                                android:paddingVertical="8dp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_others"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="기타"
+                                android:textSize="14sp"
+                                android:paddingVertical="8dp" />
+                        </RadioGroup>
+
+                        <!-- 캐릭터 이미지 - 라디오 버튼 위에 오버레이 -->
+                        <ImageView
+                            android:layout_width="159dp"
+                            android:layout_height="92dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/ic_emoji_report_page"
+                            android:contentDescription="캐릭터" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <!-- 구분 선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/background_gray"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Personal Info Agreement -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="20dp">
+
+                    <CheckBox
+                        android:id="@+id/cbAgree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/tv_check_agree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인 정보 활용 동의"
+                        android:textSize="14sp"
+                        android:textColor="#666666" />
+
+                </LinearLayout>
+
+                <!-- 제출 버튼 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn_submit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="신고하기"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/deap_blue"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

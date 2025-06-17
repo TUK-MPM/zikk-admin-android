@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_orange">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <fragment
+            android:id="@+id/headerFragment"
+            android:name="com.example.zikk.ui.HeaderFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <LinearLayout
+                    android:id="@+id/ll_report_guide_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <!-- 하얀색 배경 -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="@android:color/white"
+                            app:cardCornerRadius="24dp"
+                            app:cardElevation="2dp" />
+
+                        <!-- ImageButton (배경보다 크게) -->
+                        <ImageButton
+                            android:id="@+id/guide_btn"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:elevation="3dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/report_guide_emoji" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="신고 가이드"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_report_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="@android:color/white"
+                            app:cardCornerRadius="24dp"
+                            app:cardElevation="2dp" />
+
+                        <ImageButton
+                            android:id="@+id/btn_inquiry"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:elevation="2dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/report_emoji" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="문의사항"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_notice_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ll_report_container"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="@android:color/white"
+                            app:cardCornerRadius="24dp"
+                            app:cardElevation="2dp" />
+
+                        <ImageButton
+                            android:id="@+id/btn_notice_write"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:elevation="2dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/notice_emoji" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항 작성"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/report_query_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ll_report_container"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="@android:color/white"
+                            app:cardCornerRadius="24dp"
+                            app:cardElevation="2dp" />
+
+                        <ImageButton
+                            android:id="@+id/btn_report"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:elevation="2dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/report_query_emoji" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="신고건 조회"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </GridLayout>
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emoji_background" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- Status Bar Area -->
+    <fragment
+        android:id="@+id/headerFragment"
+        android:name="com.example.zikk.ui.HeaderFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <!-- 메인 컨텐츠 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- 헤더 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageButton
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/baseline_arrow_back_ios_30"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="뒤로가기"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공지 사항"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+
+            <!-- 필터 & 정렬 옵션 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <Spinner
+                        android:id="@+id/mySpinner"
+                        android:layout_width="90dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/round_box_large"
+                        android:backgroundTint="@color/background_gray" />
+
+                    <Button
+                        android:id="@+id/btn_write"
+                        android:layout_width="85dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/round_box_large"
+                        android:backgroundTint="@color/blue"
+                        android:text="공지사항 쓰기"
+                        android:textSize="11sp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        app:backgroundTint="@null"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 문의 리스트를 보여줄 RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/noticeRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                android:nestedScrollingEnabled="false" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/paginationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:flexWrap="wrap"
+                app:justifyContent="center" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

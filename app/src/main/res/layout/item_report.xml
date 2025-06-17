@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    card_view:cardBackgroundColor="@android:color/white"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+    <LinearLayout
+        android:id="@+id/reportItemRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent">
+
+        <!-- 텍스트 세로 정렬 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신고 위치"
+                android:textSize="14sp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신고 유형"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신고 시간"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 화살표 아이콘 -->
+        <ImageView
+            android:id="@+id/imageArrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_chevron_right_24"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginTop="-60dp"
+            android:visibility="visible" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
