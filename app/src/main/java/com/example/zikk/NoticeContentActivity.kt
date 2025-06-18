@@ -22,13 +22,14 @@ import kotlinx.coroutines.withContext
 
 class NoticeContentActivity : BaseActivity() {
     private lateinit var binding: ActivityNoticeContentBinding
+    private var notiId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = setContentViewWithBinding(ActivityNoticeContentBinding::inflate)
 
-        val notiId = intent.getIntExtra("notiId", -1)
+        notiId = intent.getIntExtra("notiId", -1)
         if (notiId == -1) {
             showToast("공지 ID가 전달되지 않았습니다.")
             finish()
@@ -128,5 +129,10 @@ class NoticeContentActivity : BaseActivity() {
                 throw e
             }
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fetchNoticeDetail(notiId)
     }
 }

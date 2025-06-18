@@ -35,6 +35,11 @@ class MainActivity : BaseActivity() {
             Log.d("NoticeClick", "Clicked: ${notice.notiId}")
         }
 
+        binding.guideBtn.setOnClickListener {
+            val intent = Intent(applicationContext, ReportGuide::class.java)
+            startActivity(intent)
+        }
+
         binding.btnNoticeWrite.setOnClickListener {
             val intent = Intent(applicationContext, AdminNoticeWriteActivity::class.java)
             startActivity(intent)

@@ -66,17 +66,17 @@ abstract class BaseActivity : AppCompatActivity() {
         )
 
         // 공통 버튼 클릭 이벤트 처리
-        drawerBinding.btnReportGuide.setOnClickListener {
-            startActivity(Intent(this, ReportGuide::class.java))
+        drawerBinding.btnNotice.setOnClickListener {
+            startActivity(Intent(this, NoticeActivity::class.java))
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        drawerBinding.btnReport.setOnClickListener {
-            startActivity(Intent(this, ReportWriteActivity::class.java))
+        drawerBinding.btnInquiryList.setOnClickListener {
+            startActivity(Intent(this, QuestionListActivity::class.java))
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        drawerBinding.btnReportQuery.setOnClickListener {
+        drawerBinding.btnReportList.setOnClickListener {
             startActivity(Intent(this, ReportListActivity::class.java))
             drawerLayout.closeDrawer(GravityCompat.START)
         }

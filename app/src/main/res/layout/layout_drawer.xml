@@ -32,7 +32,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_report_guide"
+                android:id="@+id/btn_report_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_button_first"
@@ -46,7 +46,7 @@
                 app:rippleColor="@color/light_gray" />
 
             <Button
-                android:id="@+id/btn_report"
+                android:id="@+id/btn_notice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_button"
@@ -62,7 +62,7 @@
                 app:rippleColor="@color/light_gray" />
 
             <Button
-                android:id="@+id/btn_report_query"
+                android:id="@+id/btn_inquiry_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/list_button_last"
