@@ -5,13 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_orange"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/background_orange"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical">
@@ -30,9 +29,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/round_box"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="10dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <!--버튼 하나-->
             <LinearLayout
@@ -82,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginBottom="5dp"
-                    android:text="2025-05-31 11:00"
+                    android:hint="2025-05-31"
                     android:textColor="@color/black"></TextView>
 
                 <View
@@ -134,7 +132,7 @@
                             android:id="@+id/btn_edit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/blue"
+                            android:backgroundTint="@color/deap_blue"
                             android:text="수정하기" />
                     </LinearLayout>
 

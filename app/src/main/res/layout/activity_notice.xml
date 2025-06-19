@@ -80,15 +80,22 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <Spinner
-                        android:id="@+id/mySpinner"
-                        android:layout_width="90dp"
+                    <Button
+                        android:id="@+id/btn_sort_status"
+                        android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
                         android:background="@drawable/round_box_large"
-                        android:backgroundTint="@color/background_gray" />
-
+                        android:backgroundTint="@color/sort_gray"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"
+                        android:paddingHorizontal="10dp"
+                        android:text="최신순으로 나열"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:layout_marginRight="10dp"
+                        app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btn_write"
                         android:layout_width="85dp"

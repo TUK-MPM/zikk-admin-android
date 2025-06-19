@@ -14,7 +14,7 @@ object PaginationUiUtils {
         onClick: () -> Unit
     ) = android.widget.TextView(context).apply {
         this.text = text
-        textSize = 16f
+        textSize = 20f
         setPadding(12, 6, 12, 6)
         setOnClickListener { onClick() }
         setTextColor(if (isCurrent) android.graphics.Color.BLACK else android.graphics.Color.DKGRAY)

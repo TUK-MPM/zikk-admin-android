@@ -21,4 +21,5 @@
     <color name="qusetion_red">#FF4C4C</color>
     <color name="qusetion_pink">#FFFFB4B4</color>
     <color name="drawer_bg_blue">#B9E9FF</color>
+    <color name="sort_gray">#D9D9D9</color>
 </resources>

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/background_orange">
 
     <!-- Status Bar Area -->
     <fragment
@@ -57,10 +57,7 @@
                     android:text="문의 게시판"
                     android:textSize="28sp"
                     android:textStyle="bold"
-                    android:shadowColor="#80000000"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="1"
+                    android:textColor="@color/black"
                     android:layout_centerInParent="true" />
             </RelativeLayout>
 
@@ -86,7 +83,7 @@
                         android:layout_gravity="end"
                         android:layout_marginEnd="5dp"
                         android:background="@drawable/round_box"
-                        android:backgroundTint="@color/qusetion_yellow"
+                        android:backgroundTint="@color/milk"
                         android:gravity="center"
                         android:text="대기"
                         android:textSize="13sp"
@@ -96,11 +93,12 @@
                         android:layout_width="50dp"
                         android:layout_height="25dp"
                         android:background="@drawable/round_box"
-                        android:backgroundTint="@color/qusetion_blue"
+                        android:backgroundTint="@color/deap_blue"
                         android:gravity="center"
                         android:text="완료"
                         android:textSize="13sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -109,26 +107,35 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <Spinner
-                        android:id="@+id/mySpinner"
-                        android:layout_width="90dp"
+                    <Button
+                        android:id="@+id/btn_sort_status"
+                        android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
                         android:background="@drawable/round_box_large"
-                        android:backgroundTint="@color/background_gray" />
+                        android:backgroundTint="@color/sort_gray"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"
+                        android:paddingHorizontal="10dp"
+                        android:text="최신순으로 나열"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:layout_marginRight="10dp"
+                        app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btnWrite"
                         android:layout_width="85dp"
                         android:layout_height="25dp"
                         android:background="@drawable/round_box_large"
-                        android:backgroundTint="@color/blue"
+                        android:backgroundTint="@color/deap_blue"
                         android:text="문의사항 쓰기"
                         android:textSize="11sp"
                         android:paddingTop="0dp"
                         android:paddingBottom="0dp"
                         android:paddingLeft="1dp"
                         android:paddingRight="1dp"
+                        android:textStyle="bold"
                         app:backgroundTint="@null"/>
                 </LinearLayout>
             </LinearLayout>

@@ -13,7 +13,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:background="@color/white">
+        android:background="@color/background_orange">
         <!--주석-->
         <fragment
             android:id="@+id/headerFragment"
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginBottom="5dp"
-                    android:text="2025-05-31 11:00"
+                    android:hint="2025-05-31"
                     android:textColor="@color/black">
                 </TextView>
                 <View
@@ -116,6 +116,7 @@
                     android:layout_height="100dp"
                     android:layout_marginHorizontal="30dp"
                     android:background="@drawable/round_box_medium"
+                    android:backgroundTint="#E9E9E9"
                     android:hint="아직 답변이 작성되지 않았습니다."
                     android:paddingStart="12dp"
                     android:textSize="13sp"
@@ -166,7 +167,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="완료하기"
-                            android:backgroundTint="@color/blue"/>
+                            android:backgroundTint="@color/deap_blue"/>
                     </LinearLayout>
                 </RelativeLayout>
 

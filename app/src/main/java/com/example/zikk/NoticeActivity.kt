@@ -17,7 +17,7 @@ import com.example.zikk.model.Notice
 import com.example.zikk.network.RetrofitClient
 import com.example.zikk.util.PaginationUiUtils
 import com.example.zikk.util.PaginationUtils
-import com.example.zikk.R
+import com.example.zikk.util.PopupUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,12 +29,15 @@ class NoticeActivity : BaseActivity() {
     private val pageSize = 5
     private var allNotices: List<Notice> = emptyList()
     private var isDescending = true
-    private var isSpinnerInitialized = false
+    private var displayedList: List<Notice> = emptyList()    // 필터 및 정렬된 리스트
+    private var currentFilter: String? = null                // 현재 선택된 상태 필터
+    private var currentSortDescending: Boolean = true        // 정렬 순서: true = 최신순
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentViewWithBinding(ActivityNoticeBinding::inflate)
 
+        binding.btnSortStatus.setOnClickListener { showSortPopup(it) }
 
         initUI()
         fetchNotices()
@@ -55,28 +58,7 @@ class NoticeActivity : BaseActivity() {
 
         binding.btnWrite.visibility = if (getUserRole() == "ROLE_ADMIN") View.VISIBLE else View.GONE
 
-        setupSpinner()
         setupListeners()
-    }
-
-    private fun setupSpinner() {
-        val items = arrayOf("최신순", "오래된순")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        binding.mySpinner.adapter = adapter
-        binding.mySpinner.setSelection(0)
-
-        binding.mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                if (!isSpinnerInitialized) {
-                    isSpinnerInitialized = true
-                    return
-                }
-                isDescending = position == 0
-                applySortAndLoad()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
     }
 
     private fun setupListeners() {
@@ -106,6 +88,8 @@ class NoticeActivity : BaseActivity() {
                     withContext(Dispatchers.Main) {
                         // 정렬: 서버에서 정렬된 상태면 생략 가능
                         val sorted = PaginationUtils.sortByDate(content, isDescending) { it.createdAt }
+
+                        displayedList = sorted
 
                         // 어댑터 설정
                         binding.noticeRecyclerView.adapter = NoticeAdapter(sorted) { notice ->
@@ -140,9 +124,28 @@ class NoticeActivity : BaseActivity() {
         }
     }
 
-    private fun applySortAndLoad() {
-        val sorted = PaginationUtils.sortByDate(allNotices, isDescending) { it.createdAt }
+    private fun applyFilterAndSort() {
+        val filtered = displayedList.filter { currentFilter == null}
+        val sorted = PaginationUtils.sortByDate(filtered, currentSortDescending) { it.createdAt }
+
+        // 신고 내역이 없으면 안내 메시지 및 UI 정리
+        if (sorted.isEmpty()) {
+            Toast.makeText(this, "공지 사항이 없습니다.", Toast.LENGTH_SHORT).show()
+            binding.noticeRecyclerView.adapter = NoticeAdapter(emptyList()) {}
+            binding.paginationLayout.removeAllViews() // 페이지네이션 초기화
+            return
+        }
+
+        displayedList = sorted
         loadPageSafely(1, sorted)
+    }
+
+    private fun showSortPopup(anchor: View) {
+        PopupUtils.showSortPopup(this, anchor) { isDescending ->
+            currentSortDescending = isDescending
+            binding.btnSortStatus.text = if (isDescending) "최신순으로 나열" else "오래된 순으로 나열"
+            applyFilterAndSort()
+        }
     }
 
     private fun loadPageSafely(page: Int, list: List<Notice>) {

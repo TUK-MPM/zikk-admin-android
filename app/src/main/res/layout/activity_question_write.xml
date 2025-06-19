@@ -13,7 +13,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:background="@color/white">
+        android:background="@color/background_orange">
         <!--주석-->
         <fragment
             android:id="@+id/headerFragment"
@@ -31,8 +31,8 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/round_box"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="10dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <!--버튼 하나-->
             <LinearLayout
@@ -85,7 +85,8 @@
                     android:hint="문의사항 제목을 입력해주세요. (최대 50자)"
                     android:textSize="13sp"
                     android:textColorHint="@color/deap_gray"
-                    android:textStyle="bold">
+                    android:textStyle="bold"
+                    android:backgroundTint="#E9E9E9">
                 </EditText>
 
                 <TextView
@@ -111,19 +112,26 @@
                     android:gravity="start"
                     android:paddingTop="6dp"
                     android:textColorHint="@color/deap_gray"
-                    android:textStyle="bold">
+                    android:textStyle="bold"
+                    android:backgroundTint="#E9E9E9">
                 </EditText>
 
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv_character"
+                        android:layout_width="wrap_content"
+                        android:layout_height="130dp"
+                        android:src="@drawable/questionwrite"
+                        android:layout_marginTop="15dp"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center"
-                        android:padding="16dp"
+                        android:paddingBottom="16dp"
                         android:layout_alignParentBottom="true">
 
                         <!-- 이전 버튼 -->
@@ -140,7 +148,7 @@
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
-                            android:backgroundTint="@color/blue"
+                            android:backgroundTint="@color/deap_blue"
                             android:text="완료" />
                     </LinearLayout>
                 </RelativeLayout>
