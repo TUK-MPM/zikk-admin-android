@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="전화번호를 입력해주세요" />
+        android:text="비밀번호를 입력해주세요" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_password"
@@ -50,7 +50,7 @@
         app:hintTextColor="@color/blue"
         app:boxStrokeColor="@color/blue"
         app:startIconDrawable="@drawable/description_24px"
-        app:placeholderText="010-1234-5678">
+        app:placeholderText="**********">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
